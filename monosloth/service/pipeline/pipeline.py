@@ -51,9 +51,17 @@ class Pipeline:
         :return: The result of the pipeline.
 
         """
-        _next = self.__generate()
+        result = None
 
-        return next(_next)(self.__resource, _next)
+        try:
+            _next = self.__generate()
+
+            result = next(_next)(self.__resource, _next)
+
+        except StopIteration:
+            pass
+
+        return result
 
     def __generate(self):
         """Build a generator to traverse the pipe stack.
