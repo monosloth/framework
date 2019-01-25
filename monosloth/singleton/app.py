@@ -37,6 +37,3 @@ class App(metaclass=MetaSingleton):
 
         """
         return self.parser.parse(key, self)
-
-    def run(self):
-        print('working...')
