@@ -1,0 +1,18 @@
+from monosloth import Kernel
+from monosloth.container import Container, ModuleLoader
+from monosloth.factory import AbstractFactory
+from monosloth.singleton import App
+
+factory = AbstractFactory()
+
+container = Container()
+container.set_modules(ModuleLoader().load())
+container.set_factory(factory)
+
+kernel = container.resolve(Kernel)
+kernel.register()
+
+application = container.resolve(App)
+application.set_kernel(kernel)
+application.set_container(container)
+application.run()
