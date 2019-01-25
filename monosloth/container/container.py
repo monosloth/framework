@@ -37,4 +37,29 @@ class Container:
 
         conf = self.modules[spec.get_key()]
 
+        return self.resolve_by_conf(conf)
+
+    def resolve_by_key(self, key):
+        """Resolve class by key.
+
+        Instantiate &return an instance from the given config key.
+
+        :param key: The config key.
+
+        :return: An instance derrived from the given key.
+
+        """
+        if key in self.modules:
+            return self.resolve_by_conf(self.modules[key])
+
+        return False
+
+    def resolve_by_conf(self, conf):
+        """Resolve class by config.
+
+        :param config: The class config.
+
+        :return: An instance derrived from the given config.
+
+        """
         return self.factory.get(conf, self.modules)
