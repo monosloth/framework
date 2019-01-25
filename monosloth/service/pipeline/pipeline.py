@@ -53,9 +53,7 @@ class Pipeline:
         """
         _next = self.__generate()
 
-        result = next(_next)(self.resource, _next)
-
-        return callback(result)
+        return next(_next)(self.__resource, _next)
 
     def __generate(self):
         """Build a generator to traverse the pipe stack.
@@ -63,5 +61,5 @@ class Pipeline:
         :yield: The next pipe method to invoke.
 
         """
-        for pipe in self.pipes:
-            yield resolve(pipe)[self.__method]
+        for pipe in self.__pipes:
+            yield getattr(resolve(pipe), self.__method)

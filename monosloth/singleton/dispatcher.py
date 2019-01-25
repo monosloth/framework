@@ -1,4 +1,5 @@
 from . import MetaSingleton
+from monosloth.service.pipeline import Pipeline
 
 
 class Dispatcher(metaclass=MetaSingleton):

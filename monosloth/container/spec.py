@@ -14,7 +14,10 @@ class ClassSpecification:
         """
         packages = self.__clazz.__module__.split('.')
 
-        if len(packages) == 2:
+        if len(packages) == 1:
+            return self.__clazz.__name__.lower()
+
+        elif len(packages) == 2:
             return packages[-1]
 
         return '{}.{}'.format(packages[-2], packages[-1])
