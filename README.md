@@ -16,7 +16,7 @@ python3 setup.py install
 
 ### GETTING STARTED
 
-Use the starter repository with the necessary configs [here]([https://github.com/monosloth/monosloth](https://github.com/monosloth/monosloth)). Alternatively, Initialise monosloth to have access to the dependency container; facades and decorator aliases. NOTE: If you choose not to use the starter application you will need to follow the steps listed under framework constructs.
+Use the starter repository with the necessary configs [here](https://github.com/monosloth/monosloth](https://github.com/monosloth/monosloth)). Alternatively, Initialise monosloth to have access to the dependency container; facades and decorator aliases. NOTE: If you choose not to use the starter application you will need to follow the steps listed under framework constructs.
 
 ```python
 >>> from monosloth.bootstrap import *
