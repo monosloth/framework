@@ -19,6 +19,7 @@ class AbstractFactory:
         dependencies = self.__get_dependencies(conf, modules)
 
         instance = self.__get__instance(clazz, module, dependencies)
+        instance = self.__resolve_factory(instance, conf, modules)
 
         self.__invoke_methods(instance, conf, modules)
 
@@ -93,3 +94,18 @@ class AbstractFactory:
                     _dependencies += (_dependency,)
 
                 getattr(instance, key)(*_dependencies)
+
+    def __resolve_factory(self, instance, conf, modules):
+        """Resolve & invoke factory methods.
+
+        If a factory is defined within the class specification instantiate it
+        and apply it's logic on the given instance.
+
+        """
+        if 'factory' in conf:
+            key = conf['factory']
+            factory = self.get(modules[key], modules)
+
+            return factory.get(instance)
+
+        return instance
