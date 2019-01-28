@@ -18,7 +18,11 @@ class AbstractFactory:
         module = conf['module']
         dependencies = self.__get_dependencies(conf, modules)
 
-        return self.__get__instance(clazz, module, dependencies)
+        instance = self.__get__instance(clazz, module, dependencies)
+
+        self.__invoke_methods(instance, conf, modules)
+
+        return instance
 
     def __get_dependencies(self, conf, modules):
         """Resolve class dependencies from class specification.
@@ -51,5 +55,41 @@ class AbstractFactory:
         try:
             _module = importlib.import_module(module)
             return getattr(_module, clazz)(*dependencies)
+
         except Exception as e:
             raise ClassInstantiationError(clazz, str(e))
+
+    def __invoke_methods(self, instance, conf, modules):
+        """Invoke instance methods.
+
+        :param instance: The instance on which to invoke methods.
+        :param conf: The instance class specification.
+        :param modules: The application class specifications.
+
+        """
+        if 'methods' in conf:
+            for method in conf['methods']:
+                self.__resolve_and_invoke_method(instance, method, modules)
+
+    def __resolve_and_invoke_method(self, instance, method, modules):
+        """Resolve & invoke the given method.
+
+        Resolve the given method & it's dependencies then invoke it.
+
+        :param instance: The instance on which to invoke methods.
+        :param conf: The instance class specification.
+        :param modules: The application class specifications.
+
+        """
+        if isinstance(method, str):
+            getattr(instance, method)()
+
+        elif isinstance(method, dict):
+            _dependencies = ()
+
+            for key, dependencies in method.items():
+                for dependency in dependencies:
+                    _dependency = self.get(modules[dependency], modules)
+                    _dependencies += (_dependency,)
+
+                getattr(instance, key)(*_dependencies)
