@@ -5,7 +5,6 @@ class ArrayCache(AbstractCache):
 
     __cache = {}
 
-    @abstractmethod
     def put(self, key, value):
         """Insert an item into the cache.
 
@@ -15,7 +14,6 @@ class ArrayCache(AbstractCache):
         """
         self.__cache[key] = value
 
-    @abstractmethod
     def get(self, key):
         """Fetch a value from the cache.
 

@@ -11,7 +11,7 @@ class Environment(metaclass=MetaSingleton):
         :param params: The environment params to set.
 
         """
-        self.params = params
+        self.__params = params
 
     def get(self, key):
         """Get an environment value with the given key.
@@ -21,7 +21,7 @@ class Environment(metaclass=MetaSingleton):
         :return: The environment variable value.
 
         """
-        if param in self.__params:
-            return self.__params[param]
+        if key in self.__params:
+            return self.__params[key]
 
         return False

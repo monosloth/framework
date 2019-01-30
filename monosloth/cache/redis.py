@@ -1,9 +1,8 @@
 from . import AbstractCache
 
 
-class ArrayCache(AbstractCache):
+class RedisCache(AbstractCache):
 
-    @abstractmethod
     def put(self, key, value):
         """Insert an item into the cache.
 
@@ -13,7 +12,6 @@ class ArrayCache(AbstractCache):
         """
         self.get_connection().set(key, value)
 
-    @abstractmethod
     def get(self, key):
         """Fetch a value from the cache.
 
@@ -22,4 +20,4 @@ class ArrayCache(AbstractCache):
         :return: The value associated with the given key.
 
         """
-        self.get_connection().get(key)
+        return self.get_connection().get(key)

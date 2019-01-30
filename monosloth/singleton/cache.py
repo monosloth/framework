@@ -18,7 +18,7 @@ class Cache(metaclass=MetaSingleton):
         :param value: The value to insert.
 
         """
-        self.strategy.put(key)
+        self.strategy.put(key, value)
 
     def get(self, key):
         """Fetch a value from the cache.
