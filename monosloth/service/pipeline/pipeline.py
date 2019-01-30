@@ -10,7 +10,7 @@ class Pipeline:
 
         :param resource: The resource to prepare.
 
-        :return: The pipeline instance.
+        :return: The last pipe result if any.
 
         """
         self.__resource = resource
