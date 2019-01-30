@@ -219,6 +219,19 @@ An event dispatcher is used to register and process events.
 >>> event(MyEvent, [1, 2, 3]) # Invoke an event with the given payload
 ```
 
+#### Database
+
+The database driver and credentials can be defined with the environment file. The default driver is mysql.
+
+#### Cache
+
+The cache driver and credentials can be defined within the environment file. The default driver is redis.
+
+```python
+>>> cache('foo', 'bar') # Set cache property
+>>> cache('foo') # Get cache property
+```
+
 Events are process
 
 ### REQUIREMENTS
