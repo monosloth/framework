@@ -1,5 +1,7 @@
 import redis
 
+from monosloth.singleton import Environment
+
 
 class RedisFactory:
 
@@ -14,7 +16,9 @@ class RedisFactory:
         connection = redis.Redis(
             host=env('REDIS_HOST'),
             port=env('REDIS_PORT'),
-            db=env('REDIS_DB')
+            db=env('REDIS_DB'),
+            charset="utf-8",
+            decode_responses=True
         )
 
         instance.set_connection(connection)

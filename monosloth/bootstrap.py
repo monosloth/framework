@@ -12,9 +12,10 @@ container.set_modules(ModuleLoader().load())
 container.set_factory(factory)
 
 kernel = container.resolve(Kernel)
-kernel.register()
 
 application = container.resolve(App)
 application.set_kernel(kernel)
 application.set_container(container)
 application.set_parser(container.resolve(KeyParser))
+
+kernel.register()

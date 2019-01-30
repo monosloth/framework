@@ -6,4 +6,3 @@ class Kernel:
     def register(self):
         for provider in self.providers:
             provider.register()
-            

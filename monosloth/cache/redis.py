@@ -20,4 +20,4 @@ class RedisCache(AbstractCache):
         :return: The value associated with the given key.
 
         """
-        self.get_connection().get(key)
+        return self.get_connection().get(key)
