@@ -1,7 +1,5 @@
 import redis
 
-from monosloth.singleton import Environment
-
 
 class RedisFactory:
 
