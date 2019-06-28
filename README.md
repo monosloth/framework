@@ -1,4 +1,4 @@
-<p align="center"><img src="https://voxelhog.ams3.digitaloceanspaces.com/monosloth.png"></p>
+# Monosloth
 
 A multi-purpose Python based application framework. It's purpose is to provide an application layout designed to scale quickly.
 
