@@ -1,7 +1,7 @@
 import pymysql
 
 
-class MysqlFactory:
+class MySQLFactory:
 
     def get(self, instance):
         """Instantiate and set a mysql connection.

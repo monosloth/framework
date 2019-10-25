@@ -1,2 +1,2 @@
 from . database import AbstractDatabase
-from . mysql import MysqlDatabase
+from . mysql import MySQLDatabase

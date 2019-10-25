@@ -1,3 +1,3 @@
 from . factory import AbstractFactory
 from . redis import RedisFactory
-from . mysql import MysqlFactory
+from . mysql import MySQLFactory

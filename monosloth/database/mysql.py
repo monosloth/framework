@@ -1,7 +1,7 @@
 from . database import AbstractDatabase
 
 
-class MysqlDatabase(AbstractDatabase):
+class MySQLDatabase(AbstractDatabase):
 
     def query(self, sql, params=()):
         """Invoke the given query & return a cursor.

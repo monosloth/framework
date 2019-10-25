@@ -241,6 +241,7 @@ Events are process
 ### DEPENDENCIES
 
 - pyyaml
+- redis
 
 ### DOCUMENTATION
 
