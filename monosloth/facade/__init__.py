@@ -7,3 +7,4 @@ from . event import EventFacade
 from . register import RegisterFacade
 from . env import EnvironmentFacade
 from . dispatch import DispatchFacade
+from . call import CallFacade

@@ -29,4 +29,4 @@ class BuildableCommand(Command):
         :param output: An output interface.
 
         """
-        self.__strategy
+        self.__strategy(input, output)

@@ -1,5 +1,3 @@
-from monosloth.singleton import Command
-
 from . import AbstractFacade
 
 

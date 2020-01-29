@@ -32,6 +32,8 @@ def foo(input, output):
 @command.register('bar')
 def bar(input, output):
     output.info('Hello bar!')
+
+call()
 ```
 
 ### FRAMEWORK CONSTRUCTS
