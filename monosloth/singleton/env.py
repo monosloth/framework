@@ -21,7 +21,7 @@ class Environment(metaclass=MetaSingleton):
         :return: The environment variable value.
 
         """
-        if param in self.__params:
-            return self.__params[param]
+        if key in self.__params:
+            return self.__params[key]
 
         return False

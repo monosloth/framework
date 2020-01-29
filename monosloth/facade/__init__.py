@@ -6,3 +6,4 @@ from . resolve import ResolveFacade
 from . event import EventFacade
 from . register import RegisterFacade
 from . env import EnvironmentFacade
+from . command import CommandFacade

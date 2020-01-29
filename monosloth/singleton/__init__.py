@@ -4,3 +4,4 @@ from . cache import Cache
 from . config import Config
 from . dispatcher import Dispatcher
 from . env import Environment
+from . command import Command

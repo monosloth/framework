@@ -89,7 +89,10 @@ class AbstractFactory:
 
             for key, dependencies in method.items():
                 for dependency in dependencies:
-                    _dependency = self.get(modules[dependency], modules)
+                    if ':' in dependency:
+                        _dependency = dependency.replace(':', '')
+                    else:
+                        _dependency = self.get(modules[dependency], modules)
                     _dependencies += (_dependency,)
 
-                getattr(instance, key)(*_dependencies)
+            getattr(instance, key)(*_dependencies)

@@ -24,7 +24,6 @@ class App(metaclass=MetaSingleton):
 
         :param parser: An object parser instance.
 
-
         """
         self.parser = parser
 
