@@ -10,4 +10,4 @@ class CommandProvider(AbstractProvider):
     def register(self):
 
         for cmd in self.commands:
-            command().register(cmd)
+            resolve('singleton.command').register(cmd)

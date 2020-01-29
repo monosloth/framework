@@ -21,7 +21,18 @@ Use the starter repository with the necessary configs [here](https://github.com/
 >>> from monosloth.bootstrap import *
 ```
 
+### COMMANDS
+```python
+from monosloth.decorator import command
 
+@command.register('foo')
+def foo(input, output):
+    output.info('Hello foo!')
+
+@command.register('bar')
+def bar(input, output):
+    output.info('Hello bar!')
+```
 
 ### FRAMEWORK CONSTRUCTS
 
